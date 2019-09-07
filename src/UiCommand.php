@@ -2,8 +2,8 @@
 
 namespace Laravel\Ui;
 
-use InvalidArgumentException;
 use Illuminate\Console\Command;
+use InvalidArgumentException;
 
 class UiCommand extends Command
 {
@@ -13,7 +13,7 @@ class UiCommand extends Command
      * @var string
      */
     protected $signature = 'ui
-                    { type : The preset type (bootstrap, vue, react) }
+                    { type : The preset type (uikit, vue) }
                     { --auth : Install authentication UI scaffolding }
                     { --option=* : Pass an option to the preset command }';
 
@@ -37,7 +37,7 @@ class UiCommand extends Command
             return call_user_func(static::$macros[$this->argument('type')], $this);
         }
 
-        if (! in_array($this->argument('type'), ['bootstrap', 'vue', 'react'])) {
+        if (! in_array($this->argument('type'), ['uikit', 'vue'])) {
             throw new InvalidArgumentException('Invalid preset.');
         }
 
@@ -49,15 +49,15 @@ class UiCommand extends Command
     }
 
     /**
-     * Install the "bootstrap" preset.
+     * Install the "uikit" preset.
      *
      * @return void
      */
-    protected function bootstrap()
+    protected function uikit()
     {
-        Presets\Bootstrap::install();
+        Presets\Uikit::install();
 
-        $this->info('Bootstrap scaffolding installed successfully.');
+        $this->info('UIkit scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
     }
 
@@ -68,24 +68,10 @@ class UiCommand extends Command
      */
     protected function vue()
     {
-        Presets\Bootstrap::install();
+        Presets\Uikit::install();
         Presets\Vue::install();
 
         $this->info('Vue scaffolding installed successfully.');
-        $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
-    }
-
-    /**
-     * Install the "react" preset.
-     *
-     * @return void
-     */
-    protected function react()
-    {
-        Presets\Bootstrap::install();
-        Presets\React::install();
-
-        $this->info('React scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
     }
 }
