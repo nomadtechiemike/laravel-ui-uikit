@@ -1,12 +1,12 @@
 {
-    "name": "laravel/ui",
-    "description": "Laravel UI utilities and presets.",
-    "keywords": ["laravel", "ui"],
+    "name": "torrix/laravel-ui-uikit",
+    "description": "Laravel UI preset for UIkit.",
+    "keywords": ["laravel", "ui", "uikit"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Taylor Otwell",
-            "email": "taylor@laravel.com"
+            "name": "Matt Fletcher",
+            "email": "matt@torrix.uk"
         }
     ],
     "require": {
