@@ -1,5 +1,7 @@
 # UIkit UI preset for Laravel
 
+![](https://torrix.uk/laravel-ui-uikit.jpg)
+
 **THIS README IS A WORK IN PROGRESS AND IS NOT YET COMPLETE**
 
 Out of the box, Laravel ships with a [UI preset](https://github.com/laravel/ui) for [Bootstrap](https://getbootstrap.com/) and [Vue](https://vuejs.org/) to make getting your website front-end up and running simple.
