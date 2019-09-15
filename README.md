@@ -2,7 +2,9 @@
 
 ![](https://torrix.uk/laravel-ui-uikit.jpg)
 
-Out of the box, Laravel ships with a [UI preset](https://github.com/laravel/ui) for [Bootstrap](https://getbootstrap.com/) and [Vue](https://vuejs.org/) to make getting your website front-end up and running simple.
+Out of the box, Laravel ships with a [UI preset](https://github.com/laravel/ui) for [Bootstrap](https://getbootstrap.com/) and [Vue.js](https://vuejs.org/) to make getting your website front-end up and running simple.
+
+## Laravel + UIkit = :heart_eyes:
 
 Whilst Bootstrap is a very popular front-end framework, with lots of fans, I much prefer a framework made by [YOOtheme](https://yootheme.com/) called **[UIkit](https://getuikit.com/)** myself. It's modern, clean, well-thought-out, and modular. It's my go-to framework now for websites and web applications, from tiny single-page landing sites, to massive web applications with thousands of users.
 
@@ -10,11 +12,11 @@ This repository contains my alternative to the stock preset that [Laravel UI](ht
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See Deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
-To begin, you'll need a fresh install of Laravel 6. This in turn needs Composer, which for convenience is best installed globally. Something like the following will get you up and running:
+To begin, you'll need a **fresh** install of Laravel 6. **Adding this to an existing project is not recommended and may cause issues**. For full instructions on installing Laravel, refer to the [Laravel installation docs](https://laravel.com/docs/6.x/installation), but something like the following will get you up and running:
 
 ```
 composer global require laravel/installer
@@ -24,11 +26,11 @@ laravel new mysite
 php artisan serve
 ```
 
-Your development site will be served at http://localhost:8000. If you have problems getting this far, refer to the [Laravel installation docs](https://laravel.com/docs/6.x/installation).
+Your development site will be served at http://localhost:8000.
 
 ### Installing this preset
 
-To turn a stock bootstrap-based install into a UIkit skeleton site, follow the steps below.
+To turn this stock Bootstrap-based install into a UIkit skeleton site, follow the steps below.
 
 1. Include this repository into your composer dependencies:
 
@@ -48,7 +50,15 @@ php artisan ui vue --auth
 npm install && npm run dev
 ```
 
-4. (optional) Whilst developing your site, running Mix in watch mode makes it easy to make changes and quickly see their results:
+## Developing with UIkit
+
+To get started in UIkit, read [their excellent docs](https://getuikit.com/docs/introduction). The examples and tests provided should give you all the help you need. To get an idea of what UIkit is capable of, I highly recommend the [KickOff starter templates](https://zzseba78.github.io/Kick-Off/) for inspiration. 
+
+To start customising UIkit to your own needs, take a look in [app.scss](src/Presets/uikit-stubs/app.scss). In there ,you will find the standard UIkit imports, and by way of a simple example, I've changed the default blue primary colour to a nice purple shade, just to show what's possible in almost no time at all. Try changing it to another colour, and then running `npm run dev` to rebuild the CSS, and see the changes to your site.
+
+### Handy tip
+
+Whilst developing your site, running Laravel Mix in watch mode makes it easy to make changes and quickly see their results:
 
 ```
 npm run watch
@@ -56,7 +66,7 @@ npm run watch
 
 ## Deployment
 
-When deploying to a live server, ensure to build your assets in production mode for smaller, faster downloads:
+When deploying to a live server, remember to build your assets in production mode for smaller, faster downloads:
 ```
 npm run prod
 ```
