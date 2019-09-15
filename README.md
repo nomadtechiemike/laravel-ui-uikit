@@ -6,7 +6,7 @@ Out of the box, Laravel ships with a [UI preset](https://github.com/laravel/ui) 
 
 ## Laravel + UIkit = :heart_eyes:
 
-Whilst Bootstrap is a very popular front-end framework, with lots of fans, I much prefer a framework made by [YOOtheme](https://yootheme.com/) called **[UIkit](https://getuikit.com/)** myself. It's modern, clean, well-thought-out, and modular. It's my go-to framework now for websites and web applications, from tiny single-page landing sites, to massive web applications with thousands of users.
+Although Bootstrap is very popular, I prefer [YOOtheme's](https://yootheme.com/) front-end framework **[UIkit](https://getuikit.com/)**. It's modern, clean, well-thought-out, and modular. I've used it for just about every project I've worked on in the last few years, for both websites and web applications, from tiny single-page landing sites, to massive web applications with thousands of users.
 
 This repository contains my alternative to the stock preset that [Laravel UI](https://github.com/laravel/ui) provides.
 
@@ -38,7 +38,7 @@ To turn this stock Bootstrap-based install into a UIkit skeleton site, follow th
 composer require torrix/laravel-ui-uikit
 ```
 
-2. Run the artisan command to install the preset into your Laravel install. It will ask you if you'd like to overwite welcome.blade.php. As long as you haven't started changing your blade files, this is fine to proceed with:
+2. Run the artisan command to install the preset into your Laravel install. It will ask you if you'd like to overwrite welcome.blade.php. As long as you haven't started changing your blade files, this is fine to proceed with:
 
 ```
 php artisan ui vue --auth
@@ -92,4 +92,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## License
 
-This preset is based on and extends the license of Laravel UI itself, and is therefore open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT) - see the [LICENSE.md](LICENSE.md) file for details
+This preset is based upon and extends Laravel UI, and is therefore open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT) - see the [LICENSE.md](LICENSE.md) file for details
