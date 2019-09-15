@@ -54,7 +54,7 @@ npm install && npm run dev
 
 To get started in UIkit, read [their excellent docs](https://getuikit.com/docs/introduction). The examples and tests provided should give you all the help you need. To get an idea of what UIkit is capable of, I highly recommend the [KickOff starter templates](https://zzseba78.github.io/Kick-Off/) for inspiration. 
 
-To start customising UIkit to your own needs, take a look in [app.scss](src/Presets/uikit-stubs/app.scss). In there ,you will find the standard UIkit imports, and by way of a simple example, I've changed the default blue primary colour to a nice purple shade, just to show what's possible in almost no time at all. Try changing it to another colour, and then running `npm run dev` to rebuild the CSS, and see the changes to your site.
+To start customising UIkit to your own needs, take a look in [app.scss](src/Presets/uikit-stubs/app.scss). In there, you will find the standard UIkit imports, and by way of a simple example, I've changed the default blue primary colour to a nice purple shade, just to show what's possible in almost no time at all. Try changing it to another colour, and then running `npm run dev` to rebuild the CSS, and see the changes to your site.
 
 ### Handy tip
 
