@@ -2,11 +2,9 @@
 
 ![](https://torrix.uk/laravel-ui-uikit.jpg)
 
-**THIS README IS A WORK IN PROGRESS AND IS NOT YET COMPLETE**
-
 Out of the box, Laravel ships with a [UI preset](https://github.com/laravel/ui) for [Bootstrap](https://getbootstrap.com/) and [Vue](https://vuejs.org/) to make getting your website front-end up and running simple.
 
-Whilst Bootstrap is a very popular front-end framework, with lots of fans, I much prefer a framework called [UIkit](https://getuikit.com/) myself. It's modern, clean, well-thought-out, and modular. It's my go-to framework now for websites and web applications, from tiny single-page landing sites, to massive web applications with thousands of users.
+Whilst Bootstrap is a very popular front-end framework, with lots of fans, I much prefer a framework made by [YOOtheme](https://yootheme.com/) called **[UIkit](https://getuikit.com/)** myself. It's modern, clean, well-thought-out, and modular. It's my go-to framework now for websites and web applications, from tiny single-page landing sites, to massive web applications with thousands of users.
 
 This repository contains my alternative to the stock preset that [Laravel UI](https://github.com/laravel/ui) provides.
 
@@ -14,55 +12,54 @@ This repository contains my alternative to the stock preset that [Laravel UI](ht
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### TODO: Prerequisites
+### Prerequisites
 
-To begin, you'll need a fresh install of Laravel 6. Something like the following will get you up and running on an Ubuntu-based development machine:
-
-```
-Give examples
-```
-
-### TODO: Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+To begin, you'll need a fresh install of Laravel 6. This in turn needs Composer, which for convenience is best installed globally. Something like the following will get you up and running:
 
 ```
-Give the example
+composer global require laravel/installer
+
+laravel new mysite
+
+php artisan serve
 ```
 
-And repeat
+Your development site will be served at http://localhost:8000. If you have problems getting this far, refer to the [Laravel installation docs](https://laravel.com/docs/6.x/installation).
+
+### Installing this preset
+
+To turn a stock bootstrap-based install into a UIkit skeleton site, follow the steps below.
+
+1. Include this repository into your composer dependencies:
 
 ```
-until finished
+composer require torrix/laravel-ui-uikit dev-master
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## TODO: Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+2. Run the artisan command to install the preset into your Laravel install. It will ask you if you'd like to overwite welcome.blade.php. As long as you haven't started changing your blade files, this is fine to proceed with:
 
 ```
-Give an example
+php artisan ui vue --auth
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
+3. Finally, run NPM to download UIkit, and build your assets using Laravel Mix:
 
 ```
-Give an example
+npm install && npm run dev
 ```
 
-## TODO: Deployment
+4. (optional) Whilst developing your site, running Mix in watch mode makes it easy to make changes and quickly see their results:
 
-Add additional notes about how to deploy this on a live system
+```
+npm run watch
+```
+
+## Deployment
+
+When deploying to a live server, ensure to build your assets in production mode for smaller, faster downloads:
+```
+npm run prod
+```
 
 ## Built With
 
@@ -72,7 +69,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
