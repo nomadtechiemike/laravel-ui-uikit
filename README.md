@@ -1,4 +1,4 @@
-# UIkit UI preset for Laravel
+# UIkit frontend UI preset for Laravel
 
 ![](https://torrix.uk/laravel-ui-uikit.jpg)
 

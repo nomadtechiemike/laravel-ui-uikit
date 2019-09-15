@@ -3,7 +3,7 @@
 @section('content')
     <div class="uk-section uk-section-small uk-section-muted">
         <div class="uk-container">
-            <h1 class="uk-heading-medium uk-heading-divider">UIkit preset for Laravel</h1>
+            <h1 class="uk-heading-medium uk-heading-divider">UIkit frontend preset for Laravel</h1>
             <p>
                 Congratulations, you've successfuly installed the UIkit preset for
                 Laravel. Have a browse through the links below for inspiration on
