@@ -35,7 +35,7 @@ To turn this stock Bootstrap-based install into a UIkit skeleton site, follow th
 1. Include this repository into your composer dependencies:
 
 ```
-composer require torrix/laravel-ui-uikit dev-master
+composer require torrix/laravel-ui-uikit
 ```
 
 2. Run the artisan command to install the preset into your Laravel install. It will ask you if you'd like to overwite welcome.blade.php. As long as you haven't started changing your blade files, this is fine to proceed with:
