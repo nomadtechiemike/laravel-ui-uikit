@@ -41,7 +41,7 @@ composer require torrix/laravel-ui-uikit
 2. Run the artisan command to install the preset into your Laravel install. It will ask you if you'd like to overwrite welcome.blade.php. As long as you haven't started changing your blade files, this is fine to proceed with:
 
 ```
-php artisan ui uikit vue --auth
+php artisan ui uikit --auth
 ```
 
 3. Finally, run NPM to download UIkit, and build your assets using Laravel Mix:

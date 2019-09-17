@@ -37,7 +37,7 @@ class UiCommand extends Command
             return call_user_func(static::$macros[$this->argument('type')], $this);
         }
 
-        if (! in_array($this->argument('type'), ['bootstrap', 'vue', 'react'])) {
+        if (! in_array($this->argument('type'), ['uikit', 'bootstrap', 'vue', 'react'])) {
             throw new InvalidArgumentException('Invalid preset.');
         }
 
@@ -69,6 +69,7 @@ class UiCommand extends Command
     protected function uikit()
     {
         Presets\Uikit::install();
+        Presets\Vue::install();
 
         $this->info('UIkit scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
