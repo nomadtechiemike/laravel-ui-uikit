@@ -2,8 +2,8 @@
 
 namespace Laravel\Ui;
 
-use Illuminate\Console\Command;
 use InvalidArgumentException;
+use Illuminate\Console\Command;
 
 class UiCommand extends Command
 {
@@ -13,7 +13,7 @@ class UiCommand extends Command
      * @var string
      */
     protected $signature = 'ui
-                    { type : The preset type (uikit, vue) }
+                    { type : The preset type (uikit, bootstrap, vue, react) }
                     { --auth : Install authentication UI scaffolding }
                     { --option=* : Pass an option to the preset command }';
 
@@ -37,7 +37,7 @@ class UiCommand extends Command
             return call_user_func(static::$macros[$this->argument('type')], $this);
         }
 
-        if (! in_array($this->argument('type'), ['uikit', 'vue'])) {
+        if (! in_array($this->argument('type'), ['bootstrap', 'vue', 'react'])) {
             throw new InvalidArgumentException('Invalid preset.');
         }
 
@@ -46,6 +46,19 @@ class UiCommand extends Command
         if ($this->option('auth')) {
             $this->call('ui:auth');
         }
+    }
+
+    /**
+     * Install the "bootstrap" preset.
+     *
+     * @return void
+     */
+    protected function bootstrap()
+    {
+        Presets\Bootstrap::install();
+
+        $this->info('Bootstrap scaffolding installed successfully.');
+        $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
     }
 
     /**
@@ -68,10 +81,23 @@ class UiCommand extends Command
      */
     protected function vue()
     {
-        Presets\Uikit::install();
         Presets\Vue::install();
 
         $this->info('Vue scaffolding installed successfully.');
+        $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
+    }
+
+    /**
+     * Install the "react" preset.
+     *
+     * @return void
+     */
+    protected function react()
+    {
+        Presets\Bootstrap::install();
+        Presets\React::install();
+
+        $this->info('React scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
     }
 }

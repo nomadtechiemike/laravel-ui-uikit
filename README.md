@@ -8,7 +8,7 @@ Out of the box, Laravel ships with a [UI preset](https://github.com/laravel/ui) 
 
 Although Bootstrap is very popular, I prefer [YOOtheme's](https://yootheme.com/) front-end framework **[UIkit](https://getuikit.com/)**. It's modern, clean, well-thought-out, and modular. I've used it for just about every project I've worked on in the last few years, for both websites and web applications, from tiny single-page landing sites, to massive web applications with thousands of users.
 
-This repository contains my alternative to the stock preset that [Laravel UI](https://github.com/laravel/ui) provides.
+This repository extends Laravel UI with an additional preset for UIkit.
 
 ## Getting Started
 
@@ -30,7 +30,7 @@ Your development site will be served at http://localhost:8000.
 
 ### Installing this preset
 
-To turn this stock Bootstrap-based install into a UIkit skeleton site, follow the steps below.
+To turn the base Laravel install into a UIkit skeleton site, follow the steps below.
 
 1. Include this repository into your composer dependencies:
 
@@ -41,7 +41,7 @@ composer require torrix/laravel-ui-uikit
 2. Run the artisan command to install the preset into your Laravel install. It will ask you if you'd like to overwrite welcome.blade.php. As long as you haven't started changing your blade files, this is fine to proceed with:
 
 ```
-php artisan ui vue --auth
+php artisan ui uikit vue --auth
 ```
 
 3. Finally, run NPM to download UIkit, and build your assets using Laravel Mix:

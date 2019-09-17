@@ -2,8 +2,8 @@
 
 namespace Laravel\Ui;
 
-use Illuminate\Console\Command;
 use InvalidArgumentException;
+use Illuminate\Console\Command;
 
 class AuthCommand extends Command
 {
@@ -30,18 +30,18 @@ class AuthCommand extends Command
      * @var array
      */
     protected $views = [
-        'auth/login.blade.php'           => 'auth/login.blade.php',
-        'auth/passwords/email.blade.php' => 'auth/passwords/email.blade.php',
-        'auth/passwords/reset.blade.php' => 'auth/passwords/reset.blade.php',
-        'auth/register.blade.php'        => 'auth/register.blade.php',
-        'auth/verify.blade.php'          => 'auth/verify.blade.php',
-        'home.blade.php'                 => 'home.blade.php',
-        'welcome.blade.php'              => 'welcome.blade.php',
-        'demo.blade.php'                 => 'demo.blade.php',
-        'laravel.blade.php'              => 'laravel.blade.php',
-        'uikit.blade.php'                => 'uikit.blade.php',
-        'vuejs.blade.php'                => 'vuejs.blade.php',
-        'layouts/app.blade.php'          => 'layouts/app.blade.php',
+        'auth/login.stub'           => 'auth/login.blade.php',
+        'auth/passwords/email.stub' => 'auth/passwords/email.blade.php',
+        'auth/passwords/reset.stub' => 'auth/passwords/reset.blade.php',
+        'auth/register.stub'        => 'auth/register.blade.php',
+        'auth/verify.stub'          => 'auth/verify.blade.php',
+        'home.stub'                 => 'home.blade.php',
+        'welcome.stub'              => 'welcome.blade.php',
+        'demo.stub'                 => 'demo.blade.php',
+        'laravel.stub'              => 'laravel.blade.php',
+        'uikit.stub'                => 'uikit.blade.php',
+        'vuejs.stub'                => 'vuejs.blade.php',
+        'layouts/app.stub'          => 'layouts/app.blade.php',
     ];
 
     /**
@@ -54,8 +54,8 @@ class AuthCommand extends Command
         if (static::hasMacro($this->argument('type'))) {
             return call_user_func(static::$macros[$this->argument('type')], $this);
         }
-
-        if (! in_array($this->argument('type'), ['uikit'])) {
+        
+        if (! in_array($this->argument('type'), ['uikit', 'bootstrap'])) {
             throw new InvalidArgumentException('Invalid preset.');
         }
 
@@ -87,21 +87,6 @@ class AuthCommand extends Command
     }
 
     /**
-     * Get full view path relative to the application's configured view path.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    protected function getViewPath($path)
-    {
-        return implode(DIRECTORY_SEPARATOR, [
-            config('view.paths')[0] ?? resource_path('views'),
-            $path,
-        ]);
-    }
-
-    /**
      * Export the authentication views.
      *
      * @return void
@@ -116,7 +101,7 @@ class AuthCommand extends Command
             }
 
             copy(
-                __DIR__ . '/Auth/' . $this->argument('type') . '-stubs/' . $key,
+                __DIR__.'/Auth/'.$this->argument('type').'-stubs/'.$key,
                 $view
             );
         }
@@ -136,7 +121,7 @@ class AuthCommand extends Command
 
         file_put_contents(
             base_path('routes/web.php'),
-            file_get_contents(__DIR__ . '/Auth/stubs/routes.blade.php'),
+            file_get_contents(__DIR__.'/Auth/stubs/routes.stub'),
             FILE_APPEND
         );
     }
@@ -151,7 +136,20 @@ class AuthCommand extends Command
         return str_replace(
             '{{namespace}}',
             $this->laravel->getNamespace(),
-            file_get_contents(__DIR__ . '/Auth/stubs/controllers/HomeController.blade.php')
+            file_get_contents(__DIR__.'/Auth/stubs/controllers/HomeController.stub')
         );
+    }
+
+    /**
+     * Get full view path relative to the application's configured view path.
+     *
+     * @param  string  $path
+     * @return string
+     */
+    protected function getViewPath($path)
+    {
+        return implode(DIRECTORY_SEPARATOR, [
+            config('view.paths')[0] ?? resource_path('views'), $path,
+        ]);
     }
 }
