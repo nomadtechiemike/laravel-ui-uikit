@@ -32,9 +32,10 @@ Your development site will be served at http://localhost:8000.
 
 To turn the base Laravel install into a UIkit skeleton site, follow the steps below.
 
-1. Include this repository into your composer dependencies:
+1. Include both Laravel UI and this repository into your composer dependencies:
 
 ```
+composer require laravel/ui
 composer require torrix/laravel-ui-uikit
 ```
 
