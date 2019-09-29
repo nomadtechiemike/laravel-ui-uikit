@@ -17,7 +17,7 @@
     <div class="uk-background-primary uk-light">
         <nav class="uk-navbar-container uk-navbar-transparent">
             <div class="uk-container">
-                <div class="uk-navbar" uk-navbar>
+                <div class="uk-navbar" data-uk-navbar>
                     <div class="uk-navbar-left">
                         <a class="uk-navbar-item uk-logo" href="/">{{ config('app.name', 'Laravel') }}</a>
 
@@ -26,7 +26,7 @@
                             <li>
                                 <a href="#">Useful Links</a>
                                 <div class="uk-navbar-dropdown uk-navbar-dropdown-width-3">
-                                    <div class="uk-navbar-dropdown-grid uk-child-width-1-3" uk-grid>
+                                    <div class="uk-navbar-dropdown-grid uk-child-width-1-3" data-uk-grid>
                                         <div>
                                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                                 <li class="uk-nav-header">Laravel</li>
@@ -54,9 +54,11 @@
                         <ul class="uk-navbar-nav">
                             <!-- Authentication Links -->
                             @guest
-                                <li>
-                                    <a href="{{ route('login') }}">{{ __('Log In') }}</a>
-                                </li>
+                                @if (Route::has('login'))
+                                    <li>
+                                        <a href="{{ route('login') }}">{{ __('Log In') }}</a>
+                                    </li>
+                                @endif
                                 @if (Route::has('register'))
                                     <li>
                                         <a href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -69,17 +71,18 @@
                                     </a>
                                     <div class="uk-navbar-dropdown">
                                         <ul class="uk-nav uk-navbar-dropdown-nav">
-                                        <li>
-                                            <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
+                                            <li>
+                                                <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    {{ __('Log Out') }}
+                                                </a>
 
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                style="display: none;">
-                                                @csrf
-                                            </form>
-                                        </li>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </li>
                             @endguest
