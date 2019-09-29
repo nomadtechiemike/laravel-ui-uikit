@@ -38,7 +38,7 @@ To turn the base Laravel install into a UIkit skeleton site, follow the steps be
 composer require torrix/laravel-ui-uikit
 ```
 
-2. Run the artisan command to install the preset into your Laravel install. It will ask you if you'd like to overwrite welcome.blade.php. As long as you haven't started changing your blade files, this is fine to proceed with:
+2. Run the artisan command to install the preset into your Laravel install. It will overwrite welcome.blade.php, so do not run this on established projects with changes made to that file. You can run the command with or without the `--auth` flag; this will determine whether or not the login/register routes & views are generated.
 
 ```
 php artisan ui uikit --auth
